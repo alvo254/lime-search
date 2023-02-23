@@ -45,7 +45,7 @@ export default function Login({setUser, user}) {
               setUser(user);
             //   console.log(user);
               sessionStorage.setItem("user", JSON.stringify(user));
-            navigate("/profileform");
+            navigate("/");
 
             //   console.log(user);
               // alert(errors);
