@@ -26,7 +26,7 @@ export default function NavBar({setUser, user}) {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block navbar-logo">
                         <Link to="/">
-                        <span className = "text-uppercase ms-2">Quick<span style={{color:"orange"}}>Fleet</span></span>
+                        <span className = "text-uppercase ms-2">Lime<span style={{color:"orange"}}>Search</span></span>
                         </Link>
                         <div className="md:hidden">
                             <button
@@ -96,7 +96,7 @@ export default function NavBar({setUser, user}) {
                             <Link to="/">Home</Link>
                             </li>
                             <li className="text-black-600">
-                            <Link to="/services">Service</Link>
+                            {/* <Link to="/services">Service</Link> */}
                             </li>
                             <Link to={"/login"} type = "button">
                                  <i className="fa-regular fa-user"></i>
