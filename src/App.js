@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import {  BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
+import Signup from "./components/SignUp/Signup"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Navbar user={user} setUser={setUser}/>
         <Routes>
           <Route path='/' element={<Home />}/>
+          <Route path='/Signup' element={<Signup />}/>
           <Route path='/Login' element={<Login user={setUser} setUser={setUser} />}/>
         </Routes>
     </div>
