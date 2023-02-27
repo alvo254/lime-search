@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import axios from "../../api/axios"
 import "./Login.css"
 import { useRef, useState, useEffect } from 'react';
 
@@ -45,7 +45,7 @@ export default function Login({setUser, user}) {
               setUser(user);
             //   console.log(user);
               sessionStorage.setItem("user", JSON.stringify(user));
-            navigate("/profileform");
+            navigate("/");
 
             //   console.log(user);
               // alert(errors);

@@ -80,7 +80,7 @@ export default function NavBar({setUser, user}) {
                                 <Link to="/">Home</Link>
                             </li>
                             <li className="text-black-600">
-                                <Link to="/services">Service</Link>
+                                <Link to="/tickets">Tickets</Link>
                             </li>
                     <button className = "btn position-relative logout-button" onClick={handleLogout}>
                         Logout
@@ -96,7 +96,7 @@ export default function NavBar({setUser, user}) {
                             <Link to="/">Home</Link>
                             </li>
                             <li className="text-black-600">
-                            {/* <Link to="/services">Service</Link> */}
+                            {/* <Link to="/tickets">Service</Link> */}
                             </li>
                             <Link to={"/login"} type = "button">
                                  <i className="fa-regular fa-user"></i>
