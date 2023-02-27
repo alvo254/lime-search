@@ -4,19 +4,27 @@ import axios from "axios";
 const Home = () => {
 
     const [search, setSearch] = useState("")
+    console.log(search)
 
     const [ticket, setTicket] = useState("")
 
     const [customers, setCustomers] = useState([]);
 
+
+    const searching = (e) =>{
+        e.preventDefault()
+        console.log(e.target.value)
+
+    }
+
     useEffect(() => {
-        axios("/tickets")
-        .then((rec) => {setTicket(ticket)})
+        axios("/users")
+        .then((rec) => {setTicket(rec.data)})
     },[])
 
     console.log(ticket)
 
-    
+
    useEffect(() => {
     axios("/customers")
     .then((resv) => {setCustomers(resv.data)})
@@ -39,15 +47,17 @@ const Home = () => {
             <i class="fas fa-search"></i>
             </span>
         </div> */}
-        <div class="input-group" style={{width:"520px", marginLeft:"750px", paddingTop:"40px"}}>
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-outline-primary">search</button>
+        <div class="input-group" style={{width:"520px", paddingTop:"40px"}}>
+            <input onChange={(e) => setSearch(e.target.value)} type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            {/* <button onClick={searching} type="button" class="btn btn-outline-primary">search</button> */}
         </div>
+
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Customers</th>
+                    <th scope="col">User Name</th>
                     <th scope="col">Tickets</th>
                     <th scope="col">Description</th>
                     <th scope="col">payments</th>
@@ -64,20 +74,27 @@ const Home = () => {
                 <tr>
                     <th scope="row">1</th>
                     {
-                        customers.map((value, key) => {
-                            return(
+                        customers.filter((item) => {
+                            return search.toLowerCase() === '' ? item : item.FirstName.toLowerCase().includes(search)
+                        }).map((value, key) => (
+                            
                                 <>
                                 <td>{value.FirstName +' '+value.LastName}</td>
+                                <td>{value.Username}</td>
+                                <td>{value.ticket}</td>
+                                <td>{value.payments}</td>
+                                <td>{value.description}</td>
+                                
                                 </>
                     
                                 
                                 )
-                        })
+                        )
                     }
-                    {}
-                    <td></td>
+                    
+                    {/* <td></td>
                     <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>@mdo</td> */}
                 </tr>
                 {/* <tr>
                     <th scope="row">2</th>

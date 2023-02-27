@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    fetch("127.0.0.1:4040/me")
+    fetch("/me")
     .then((r) => {
       if(r.ok){
         r.json().then((user) => setUser(user))
