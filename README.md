@@ -41,6 +41,11 @@ Sinatra for the backend api
     You will also need the backened to run localy from - https://github.com/alvo254/lime-search
     You will need to npm install to get all the dependencies
 
+    run react on default port
+
+    once the backend repo is cloned start the rail server on port 4040
+    - rails s -p 4040
+
 # sample
 
 
