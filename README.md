@@ -7,7 +7,7 @@
 - [Features](feature)
 - [Development](development)
 - [Setup](setup)
-- [Deployment](deployment)
+- [brie](sample)
 - [License](license)
 
 
@@ -40,6 +40,8 @@ Sinatra for the backend api
     clone the application.
     You will also need the backened to run localy from - https://github.com/alvo254/lime-search
     You will need to npm install to get all the dependencies
+
+# sample
 
 
 # License
