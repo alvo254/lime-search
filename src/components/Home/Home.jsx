@@ -3,26 +3,20 @@ import axios from "axios";
 
 const Home = () => {
 
-    const [search, setSearch] = useState("")
-    console.log(search)
+    const [search, setSearch] = useState('')
+    // console.log(search)
 
     const [ticket, setTicket] = useState("")
 
     const [customers, setCustomers] = useState([]);
 
 
-    const searching = (e) =>{
-        e.preventDefault()
-        console.log(e.target.value)
+    // useEffect(() => {
+    //     axios("/payments")
+    //     .then((rec) => {setTicket(rec.data)})
+    // },[])
 
-    }
-
-    useEffect(() => {
-        axios("/users")
-        .then((rec) => {setTicket(rec.data)})
-    },[])
-
-    console.log(ticket)
+    // console.log(ticket)
 
 
    useEffect(() => {
@@ -31,12 +25,12 @@ const Home = () => {
    },[])
    console.log(customers)
 
-   const mapping = () =>{
-    customers.map((val, key) => {
-        console.log(val.FirstName +' '+ val.LastName)
-    })
-   }
-   mapping()
+//    const mapping = () =>{
+//     customers.map((val, key) => {
+//         console.log(val.FirstName +' '+ val.LastName)
+//     })
+//    }
+//    mapping()
 
 
   return (
@@ -47,12 +41,12 @@ const Home = () => {
             <i class="fas fa-search"></i>
             </span>
         </div> */}
-        <div class="input-group" style={{width:"520px", paddingTop:"40px"}}>
-            <input onChange={(e) => setSearch(e.target.value)} type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <div className="input-group" style={{width:"520px", paddingTop:"40px"}}>
+            <input onChange={(e) => setSearch(e.target.value)} type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
             {/* <button onClick={searching} type="button" class="btn btn-outline-primary">search</button> */}
         </div>
 
-        <table class="table">
+        <table className="table">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -73,7 +67,8 @@ const Home = () => {
   
                 <tr>
                     <th scope="row">1</th>
-                    {
+                    {/* {
+                        
                         customers.filter((item) => {
                             return search.toLowerCase() === '' ? item : item.FirstName.toLowerCase().includes(search)
                         }).map((value, key) => (
@@ -83,7 +78,7 @@ const Home = () => {
                                 <td>{value.Username}</td>
                                 <td>{value.ticket}</td>
                                 <td>{value.payments}</td>
-                                <td>{value.description}</td>
+                                <td style={{color:"red"}}>Pending</td>
                                 
                                 </>
                     
@@ -91,11 +86,27 @@ const Home = () => {
                                 )
                         )
                     }
-                    
+                     */}
                     {/* <td></td>
                     <td>Otto</td>
                     <td>@mdo</td> */}
                 </tr>
+
+                {customers.filter((data) => {
+                    return search.toLowerCase() === '' ? data : data.FirstName.toLowerCase().includes(search)
+                }).map((value) => (
+                            <tr>
+                    <th scope="row" key={value.id}>{value.id}</th>
+
+                              <td>{value.FirstName + ' ' + value.LastName}</td>
+                              <td>{value.Username}</td>
+                              {value.tickets.map((data) => (<td key={ticket.id}>{data.Title}</td> ))}
+                              {value.tickets.map((data) => (<td key={ticket.id}>{data.Description}</td> ))}
+                              {value.payments.map((data) => (<td>{data.Amount}</td> ))}
+                          </tr>
+
+                ))}
+
                 {/* <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
