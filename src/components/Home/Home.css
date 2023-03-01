@@ -1,0 +1,9 @@
+.card-body li{
+    text-align: left;
+    padding-left: 1rem;
+    list-style: none;
+    overflow-y: 100px;
+}
+.row{
+    margin-top: 40px;
+}
