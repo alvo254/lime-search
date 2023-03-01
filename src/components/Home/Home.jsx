@@ -91,7 +91,9 @@ const Home = () => {
                 <div class="card-body">
                 <div className="card-header">First name</div>
                     {
-                        customers.map((data) => (
+                        customers.filter((item) => {
+                            return search.toLowerCase() === '' ? item : item.FirstName.toLowerCase().includes(search)
+                        }).map((data) => (
                             <>
                             <li style={{listStyle:"none"}}>{data.FirstName}</li>
                             {/* <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
@@ -107,7 +109,9 @@ const Home = () => {
                 <div class="card-body">
                 <div className="card-header">Usernames</div>
                     {
-                        customers.map((data) => (
+                        customers.filter((item) => {
+                            return search.toLowerCase() === '' ? item : item.FirstName.toLowerCase().includes(search)
+                        }).map((data) => (
                             <>
                             <li style={{listStyle:"none"}}>{data.Username}</li>
                             {/* <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
